@@ -1,52 +1,74 @@
-/* color palette from <https://github.com/vuejs/theme> */
+/* Ocean Professional Theme Tokens */
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
+  /* Brand */
+  --brand-primary: #2563EB; /* blue-600 */
+  --brand-primary-600: #2563EB;
+  --brand-primary-500: #3B82F6;
+  --brand-primary-100: #DBEAFE;
 
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+  --brand-secondary: #F59E0B; /* amber-500 */
+  --brand-secondary-600: #D97706;
+  --brand-secondary-100: #FEF3C7;
 
-  --vt-c-indigo: #2c3e50;
+  --brand-success: #10B981; /* emerald-500 */
+  --brand-error: #EF4444; /* red-500 */
 
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+  /* Neutrals */
+  --neutral-50: #f9fafb;
+  --neutral-100: #f3f4f6;
+  --neutral-200: #e5e7eb;
+  --neutral-300: #d1d5db;
+  --neutral-400: #9ca3af;
+  --neutral-500: #6b7280;
+  --neutral-700: #374151;
+  --neutral-900: #111827;
 
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  /* Surfaces */
+  --color-background: var(--neutral-50);
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+
+  /* Text */
+  --color-text: var(--neutral-900);
+  --color-text-muted: #4b5563;
+  --color-heading: var(--neutral-900);
+
+  /* Borders and shadows */
+  --color-border: var(--neutral-200);
+  --color-border-strong: var(--neutral-300);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+
+  /* Radii & spacing */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --gap-xs: 6px;
+  --gap-sm: 10px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 32px;
+
+  /* Gradients */
+  --ocean-gradient: linear-gradient(135deg, rgba(59,130,246,0.10), rgba(249,250,251,1));
+  --accent-gradient: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(245,158,11,0.10));
+
+  --section-gap: 120px;
 }
 
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
-
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
-}
-
+/* Dark scheme support (optional baseline) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
+    --color-background: #0b1220;
+    --color-surface: #0f172a;
+    --color-surface-muted: #0b1220;
+    --color-text: #e5e7eb;
+    --color-text-muted: #9ca3af;
+    --color-heading: #f9fafb;
+    --color-border: #1f2937;
+    --color-border-strong: #374151;
+    --ocean-gradient: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(2,6,23,1));
   }
 }
 
@@ -58,13 +80,16 @@
   font-weight: normal;
 }
 
-body {
+html, body, #app {
   min-height: 100vh;
+}
+
+body {
   color: var(--color-text);
   background: var(--color-background);
   transition:
-    color 0.5s,
-    background-color 0.5s;
+    color 0.3s ease,
+    background-color 0.3s ease;
   line-height: 1.6;
   font-family:
     Inter,
@@ -83,4 +108,97 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--gap-lg);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.btn-primary {
+  background: var(--brand-primary);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--brand-primary-500);
+  box-shadow: 0 6px 16px rgba(37,99,235,.25);
+}
+
+.btn-secondary {
+  background: var(--brand-secondary);
+  color: #111827;
+}
+.btn-secondary:hover {
+  background: var(--brand-secondary-600);
+}
+
+.input, .select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.input:focus, .select:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+
+.label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+/* Forms layout */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-md);
+}
+@media (min-width: 768px) {
+  .form-row.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .form-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Simple table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th, .table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+.table th {
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 0.85rem;
 }
