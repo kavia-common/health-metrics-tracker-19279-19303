@@ -1,0 +1,4 @@
+{
+    "command": "npm install",
+    "working_directory": "/home/kavia/workspace/code-generation/health-metrics-tracker-19279-19303/health_tracker_frontend"
+}
